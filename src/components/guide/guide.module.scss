@@ -1,0 +1,599 @@
+.container {
+  width: 100%;
+  min-height: 550px;
+  // border: 2px solid red;
+  .containerContent {
+    width: 100%;
+    height: 500px; //new changes
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    // border: 2px solid white;
+    .countdown {
+      color: var(--buttonColor);
+      height: 500px;
+      width: 40%;
+      // border: 2px solid purple;
+      h1 {
+        text-align: center;
+        font-size: 30px;
+      }
+      .imgContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        // border: 2px solid purple;
+        height: 300px;
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .countdownContainer {
+        color: var(--white);
+        font-size: 30px;
+        text-align: center;
+      }
+
+      // progress bar starts here
+      .meter {
+        border: 2px solid red;
+        box-sizing: content-box;
+        height: 20px; /* Can be anything */
+        position: relative;
+        background: #555;
+        border-radius: 25px;
+        margin-top: 20px;
+        // padding: 10px;
+        box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+        span {
+          display: block;
+          height: 100%;
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+          background-color: var(--buttonColor);
+          background-image: linear-gradient(
+            center bottom,
+            rgb(43, 194, 83) 37%,
+            rgb(84, 240, 84) 69%
+          );
+          box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+            inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+          position: relative;
+          overflow: hidden;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+              -45deg,
+              rgba(255, 255, 255, 0.2) 25%,
+              transparent 25%,
+              transparent 50%,
+              rgba(255, 255, 255, 0.2) 50%,
+              rgba(255, 255, 255, 0.2) 75%,
+              transparent 75%,
+              transparent
+            );
+            z-index: 1;
+            background-size: 50px 50px;
+            animation: move 2s linear infinite;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            overflow: hidden;
+          }
+        }
+      }
+      .red {
+        span {
+          background-image: linear-gradient(#f0a3a3, #f42323);
+        }
+      }
+      // progress bar ends here
+    }
+    .guide {
+      // hide scroll bar starts here
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      scrollbar-width: none;
+      // hide scroll bar end here
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 60%;
+      // border: 2px solid green;
+      overflow: scroll;
+      padding-left: 30px;
+      color: var(--white);
+      .content {
+        width: 100%;
+        height: 100%;
+        // border: 2px solid white;
+
+        span {
+          font-size: 13px;
+        }
+        .connectPcContainer,
+        .metaContainer,
+        .trustContainer {
+          margin-top: 20px;
+          background-color: var(--buttonColor);
+          border: 1px solid var(--white);
+          width: 100%;
+          .connectPc1 {
+            min-height: 45px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // border: 2px solid white;
+            .leftIcon {
+              font-weight: 700;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              min-width: 100px;
+              margin: 0 20px;
+              div {
+                padding-right: 20px;
+              }
+              .icon {
+                display: flex;
+                // justify-content: space-between;
+                align-items: center;
+                // border: 2px solid red;
+                color: var(--white);
+                font-size: 20px;
+              }
+            }
+            .rightIcon {
+              min-width: 50px;
+              font-size: 20px;
+            }
+          }
+          .pcInfo {
+            // border: 2px solid red;
+            max-height: 0px;
+            overflow: hidden;
+            width: 100%;
+            transition: all 0.6s ease-in-out;
+            .pcInfoContent {
+              // border: 2px solid green;
+              padding: 0 20px;
+              ul {
+                li {
+                  line-height: 2;
+                  font-size: 15px;
+                  margin-bottom: 10px;
+                  // border: 2px solid black;
+                  img {
+                    width: 100%;
+                    height: 20%;
+                    // border: 2px solid purple;
+                    object-fit: contain;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .tokenContainer {
+    // background-color: var(--buttonColor);
+    margin-top: 20px;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid white;
+    color: var(--white);
+    .tokenBalanceContainer {
+      padding: 0 20px;
+      min-height: 500px;
+      // border: 2px solid red;
+      background-color: var(--backgroundColor);
+      // box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+      // -webkit-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+      // -moz-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+      width: 35%;
+      .ethBalance,
+      .tokenBalance {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 0;
+        box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+        -webkit-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+        -moz-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+        // background-color: var(--buttonColor);
+        .ethBalanceContent {
+          padding: 0 10px;
+          width: 80%;
+          height: 50%;
+          box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+          -webkit-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+          -moz-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          span {
+            display: block;
+            // border: 2px solid red;
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+    .loyaltyContainer {
+      // padding-right: 20px;
+      min-height: 500px;
+      box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+      -webkit-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+      -moz-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
+      width: 65%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .notEligible {
+        height: 500px;
+        width: 100%;
+        padding: 0 10px;
+        // border: 2px solid red;
+        color: var(--buttonColor);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .stakeContainer {
+        // border: 2px solid white;
+        min-height: 450px;
+        width: 90%;
+        .stakeGuide {
+          // border: 2px solid red;
+          width: 100%;
+          min-height: 120px;
+        }
+        .stakeFormContainer {
+          // border: 3px solid red;
+          .stakeCountdownContainer {
+            margin: 10px 0;
+            h2 {
+              font-weight: 600;
+              color: var(--buttonColor);
+            }
+          }
+          .stakingApy {
+            // border: 3px solid red;
+            width: 100%;
+            .apyValue {
+              width: 100%;
+              h4 {
+                font-weight: 400;
+                font-size: 20px;
+                color: var(--buttonColor);
+              }
+              span {
+                font-size: 25px;
+              }
+            }
+            .tvlvalue {
+              // border: 3px solid red;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin: 10px 0;
+              div {
+                h4 {
+                  font-weight: 400;
+                  font-size: 20px;
+                  color: var(--buttonColor);
+                }
+                span {
+                  font-size: 25px;
+                }
+              }
+            }
+          }
+          width: 100%;
+          min-height: 200px;
+          // border: 3px solid red;
+          .toggleStakeTab {
+            // border: 3px solid red;
+            display: flex;
+            // border: 3px solid red;
+            width: 100%;
+            height: 45px;
+            button {
+              flex: 1;
+              height: 100%;
+              font-family: "Poppins";
+              cursor: pointer;
+              background: none;
+              border: none;
+              color: var(--buttonColor);
+              font-size: 18px;
+              &:focus {
+                border-bottom: var(--white);
+              }
+            }
+          }
+          // border: 2px solid blue;
+          form {
+            padding-top: 20px;
+            .unstakeInfo {
+              padding: 15px 0;
+              width: 100%;
+              span {
+                // border: 2px solid red;
+                color: green;
+                display: block;
+                text-align: center;
+                font-weight: 700;
+              }
+            }
+            .stakeBalanceContent {
+              .stakeMapContent {
+                .formGroup {
+                  position: relative;
+                  // border: 3px solid red;
+                  input {
+                    width: 100%;
+                    height: 45px;
+                    padding: 8px 10px;
+                    font-size: 16px;
+                    outline: none;
+                  }
+                  .maxButton {
+                    position: absolute;
+                    right: 5px;
+                    top: 0;
+                    height: 45px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    button {
+                      margin: 0;
+                      width: unset;
+                      background: none;
+                      color: var(--buttonColor);
+                      border: none;
+                      padding-right: 25px;
+                      font-family: "Poppins";
+                    }
+                  }
+                }
+                button {
+                  background-color: var(--buttonColor);
+                  outline: none;
+                  margin-top: 10px;
+                  width: 100%;
+                  height: 45px;
+                  color: var(--white);
+                  font-weight: 600;
+                  cursor: pointer;
+                  font-size: 18px;
+                  font-family: "Poppins";
+                  letter-spacing: 2px;
+                }
+                .stakeExtras {
+                  margin: 5px 0;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  color: var(--buttonColor);
+                  h4 {
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: var(--buttonColor);
+                  }
+                  span {
+                    // border: 2px solid red;
+                    font-size: 20px;
+                    margin: unset;
+                    color: var(--white);
+                    // min-width: 200px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        @media screen and (max-width: 800px) {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+
+// animation for the progress bar
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    min-height: 400px;
+    .containerContent {
+      height: unset;
+      min-height: 500px;
+      // border: 2px solid red;
+      flex-direction: column;
+      .countdown {
+        min-height: 500px; //new changes
+        width: 95%;
+        h1 {
+          font-size: 22px;
+        }
+        .imgContainer {
+          // border: 2px solid red;
+          height: 400px;
+        }
+        .countdownContainer {
+          font-size: 22px;
+        }
+        .meter {
+          height: 10px;
+        }
+      }
+      .guide {
+        margin: 20px 0;
+        width: 100%;
+        // min-height: 800px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0;
+        // border: 2px solid red;
+        .content {
+          width: 100%;
+
+          .connectPcContainer,
+          .metaContainer,
+          .trustContainer {
+            .connectPc1 {
+              font-size: 13px;
+            }
+          }
+          .pcInfo {
+            max-height: 0px;
+            overflow: hidden;
+            width: 100%;
+            transition: all 0.6s ease-in-out;
+            .pcInfoContent {
+              ul {
+                li {
+                  // border: 2px solid blue;
+                  line-height: 1.8 !important;
+                  font-size: 13px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .tokenContainer {
+      // border: 3px solid white;
+      flex-direction: column;
+      .tokenBalanceContainer {
+        width: 100%;
+        .ethBalance,
+        .tokenBalance {
+          font-size: 13px;
+        }
+      }
+
+      .loyaltyContainer {
+        min-height: 100px;
+        // border: 2px solid blue;
+        width: 100%;
+        margin: 20px 0;
+        .notEligible {
+          height: 500px;
+          div {
+            h2 {
+              font-size: 13px;
+            }
+          }
+        }
+        .stakeContainer {
+          .stakeGuide {
+            font-size: 13px;
+          }
+          .stakingApy {
+            .apyValue {
+              // border: 2px solid red;
+              h4 {
+                font-size: unset;
+                font-size: 16px !important;
+              }
+              span {
+                font-size: 18px !important;
+              }
+            }
+            .tvlvalue {
+              div {
+                h4 {
+                  font-size: unset;
+                  font-size: 16px !important;
+                }
+                span {
+                  font-size: 18px !important;
+                }
+              }
+            }
+          }
+
+          .stakeFormContainer {
+            font-size: 14px;
+            .toggleStakeTab {
+              button {
+                font-size: 15px;
+              }
+            }
+            form {
+              // border: 2px solid red;
+              .unstakeInfo {
+                span {
+                  font-size: 13px;
+                }
+              }
+              .stakeBalanceContent {
+                .stakeMapContent {
+                  .formGroup {
+                    input {
+                      height: 40px;
+                    }
+                    .maxButton {
+                      button {
+                        font-size: 15px;
+                      }
+                    }
+                  }
+                  button {
+                    font-size: 15px;
+                  }
+                  .stakeExtras {
+                    h4 {
+                      font-size: 13px;
+                    }
+                    span {
+                      font-size: 13px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
