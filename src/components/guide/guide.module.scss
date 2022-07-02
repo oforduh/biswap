@@ -551,7 +551,17 @@
           }
           .coinSummary {
             span {
-              font-size: 13px;
+              // border: 2px solid blue;
+              .eligibilityContainer {
+                font-size: 13px;
+                .connectPc1 {
+                  .leftIcon {
+                    div {
+                      font-size: 13px;
+                    }
+                  }
+                }
+              }
             }
           }
           .connectPcContainer,
