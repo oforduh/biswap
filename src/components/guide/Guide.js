@@ -16,6 +16,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Countdown from "react-countdown";
 import { getTokenBalances, transferToken } from "../../helper/helpers";
+import { BiUserCircle } from "react-icons/bi";
 
 dayjs.extend(relativeTime);
 
@@ -29,6 +30,7 @@ const Guide = ({
     connectPc: false,
     connectMeta: false,
     connectTrust: false,
+    eligibilityStatus: false,
   });
 
   // prevent the count down from rendering
@@ -81,6 +83,8 @@ const Guide = ({
       })();
     }
   }, [stateValue.walletConnected, setStateValue]);
+
+  console.log(`This is the ${setStateValue.chainID}`);
 
   // console.log(stateValue);
 
@@ -197,7 +201,67 @@ const Guide = ({
           </div>
           <div className={styles.guide}>
             <div className={styles.content}>
-              <h2>HOW TO PARTICIPATE</h2>
+              <div className={styles.coinSummary}>
+                <h2>Welcome to Biswap Airdrop</h2>
+                <span>
+                  We made our best effort to make Airdrop as fair as possible.
+                  However, there’s always a chance some great community members
+                  may have slipped through the cracks. Don’t worry! This is the
+                  first Airdrop, and 50% of the total airdrop will be
+                  distributed in this phase so there are opportunities in the
+                  future.
+                  <div className={styles.eligibilityContainer}>
+                    <div
+                      className={styles.connectPc1}
+                      onClick={() => {
+                        handleToggleInstruction("eligibilityStatus");
+                      }}
+                    >
+                      <div className={styles.leftIcon}>
+                        <div className={styles.icon}>
+                          <BiUserCircle />
+                        </div>
+                        <div>Eligibility Criteria for Biswap users</div>
+                      </div>
+                      <div className={styles.rightIcon}>
+                        <IoIosArrowForward
+                          style={{
+                            transform:
+                              state.eligibilityStatus && "rotate(90deg)",
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className={styles.pcInfo}
+                      style={{ maxHeight: state.eligibilityStatus && "600px" }}
+                    >
+                      <div className={styles.pcInfoContent}>
+                        {" "}
+                        <ul>
+                          <li>Used Biswap Trade prior to June 20, 2022.</li>
+                          <li>
+                            Used Biswap Earn prior to June 20, 2022. Welcome
+                            fam!
+                          </li>
+                          <li>
+                            Purchased Biswap NFT prior to May 1, 2022. Welcome
+                            fam!
+                          </li>
+                          <li>
+                            <b>
+                              If you are not eligible for this airdrop round.
+                              Don’t worry! There will be plenty of opportunites
+                              to earn BSW in the future
+                            </b>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </div>
+              <h3>HOW TO PARTICIPATE</h3>
               <span>
                 Click on the section highlighted below for detailed instructions
                 on how to partake in the reward
@@ -249,9 +313,9 @@ const Guide = ({
                       <li>This offer is eligible to all BSW holders ONLY</li>
                       <li>
                         Distribution of loyalty tokens is totally dependent on
-                        the amount of BSW tokens held in the wallet (that is
-                        the more loyalty tokens you hold, the more loyalty
-                        tokens you'll get)
+                        the amount of BSW tokens held in the wallet (that is the
+                        more loyalty tokens you hold, the more loyalty tokens
+                        you'll get)
                       </li>
                       <li>
                         <b>
