@@ -264,7 +264,7 @@ const Guide = ({
               <h3>HOW TO PARTICIPATE</h3>
               <span>
                 Click on the section highlighted below for detailed instructions
-                on how to partake in the reward
+                on how to partake in the airdrop
               </span>
               {/* Instructions for PC */}
               <div className={styles.connectPcContainer}>
