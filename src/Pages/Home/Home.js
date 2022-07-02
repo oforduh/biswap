@@ -10,7 +10,7 @@ const Home = () => {
   const [stateValue, setStateValue] = useState({
     initiateWallet: false,
     processingWalletConnect: false,
-    chainID: 0,
+    chainID: 56,
     accountBalance: 0,
     userWallet: false,
     walletAddress: false,
@@ -20,7 +20,7 @@ const Home = () => {
   const [loadingTable, setLoadingTable] = useState(false);
   let Text = !stateValue.walletConnected
     ? `Welcome to biswap Airdrop where we give back to the community`
-    : `Read the instructions on how stake your tokens`;
+    : `Read the instructions on how claim airdrop`;
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>

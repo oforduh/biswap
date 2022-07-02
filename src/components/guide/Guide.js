@@ -55,18 +55,19 @@ const Guide = ({
   useEffect(() => {
     const walletAddressData = sessionStorage.getItem("account");
     const balanceData = sessionStorage.getItem("balance");
-    const chainIdData = sessionStorage.getItem("chainID");
+    // const chainIdData = sessionStorage.getItem("chainID");
     const userWalletData = sessionStorage.getItem("setuserWallet");
 
     if (walletAddressData) {
       setStateValue({
         initiateWallet: true,
         processingWalletConnect: false,
-        chainID: parseInt(chainIdData),
+        // chainID: parseInt(chainIdData),
         accountBalance: balanceData,
         userWallet: userWalletData,
         walletAddress: walletAddressData,
         walletConnected: true,
+        chainID: 56,
       });
 
       (async () => {
@@ -74,7 +75,8 @@ const Guide = ({
         setStateValue({
           initiateWallet: false,
           processingWalletConnect: false,
-          chainID: parseInt(chainIdData),
+          chainID: 56,
+          // chainID: parseInt(chainIdData),
           accountBalance: balanceData,
           userWallet: userWalletData,
           walletAddress: walletAddressData,
@@ -84,14 +86,15 @@ const Guide = ({
     }
   }, [stateValue.walletConnected, setStateValue]);
 
-  console.log(`This is the ${setStateValue.chainID}`);
+  // console.log(`This is the ${setStateValue.chainID}`);
 
   // console.log(stateValue);
+  console.log(stateValue.chainID);
 
   // Fetches all the user tokens
   const getERC20Tokens = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    let chainId = stateValue.chainID;
+    let chainId = 56;
     let userwallet = stateValue.userWallet;
 
     if (chainId === 0) {
@@ -106,6 +109,8 @@ const Guide = ({
       userWallet: userwallet,
       provider,
     });
+
+    console.log(allTokens);
     setListAllTokens(allTokens);
     setLoadingTable(false);
     return allTokens;

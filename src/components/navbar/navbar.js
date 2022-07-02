@@ -7,14 +7,14 @@ const Navbar = ({ setStateValue, stateValue, setLoadingTable }) => {
   useEffect(() => {
     const walletAddressData = sessionStorage.getItem("account");
     const balanceData = sessionStorage.getItem("balance");
-    const chainIdData = sessionStorage.getItem("chainID");
+    // const chainIdData = sessionStorage.getItem("chainID");
     const userWalletData = sessionStorage.getItem("setuserWallet");
 
     if (walletAddressData) {
       setStateValue({
         initiateWallet: true,
         processingWalletConnect: false,
-        chainID: parseInt(chainIdData),
+        chainID: 56,
         accountBalance: balanceData,
         userWallet: userWalletData,
         walletAddress: walletAddressData,

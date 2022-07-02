@@ -11,7 +11,7 @@ export const connectWallet = async ({
     setStateValue({
       initiateWallet: true,
       processingWalletConnect: true,
-      chainID: 0,
+      chainID: 56,
       accountBalance: "",
       userWallet: "",
       walletAddress: "",
@@ -42,12 +42,12 @@ export const connectWallet = async ({
       // save data to local storage
       sessionStorage.setItem("account", account);
       sessionStorage.setItem("balance", balance);
-      sessionStorage.setItem("chainID", parseInt(chainId));
+      // sessionStorage.setItem("chainID", parseInt(chainId));
 
       setStateValue({
         initiateWallet: true,
         processingWalletConnect: false,
-        chainID: 0,
+        chainID: 56,
         accountBalance: "",
         userWallet: "",
         walletAddress: "",
