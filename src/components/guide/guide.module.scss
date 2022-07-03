@@ -298,6 +298,24 @@
         -webkit-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
         -moz-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
         // background-color: var(--buttonColor);
+        .claimAirdrop {
+          border: 3px solid white;
+          width: 100%;
+          height: 100%;
+          .claimAirdropContent {
+            width: 90%;
+            height: 90%;
+            span {
+              display: block;
+            }
+            .button {
+              width: 100%;
+              cursor: pointer;
+              height: 45px;
+              color: var(--buttonColor);
+            }
+          }
+        }
         .ethBalanceContent {
           padding: 0 10px;
           width: 80%;
@@ -337,163 +355,14 @@
         justify-content: center;
         align-items: center;
       }
-      .stakeContainer {
-        // border: 2px solid white;
-        min-height: 450px;
-        width: 90%;
-        .stakeGuide {
-          // border: 2px solid red;
-          width: 100%;
-          min-height: 120px;
-        }
-        .stakeFormContainer {
-          // border: 3px solid red;
-          .stakeCountdownContainer {
-            margin: 10px 0;
-            h2 {
-              font-weight: 600;
-              color: var(--buttonColor);
-            }
-          }
-          .stakingApy {
-            // border: 3px solid red;
-            width: 100%;
-            .apyValue {
-              width: 100%;
-              h4 {
-                font-weight: 400;
-                font-size: 20px;
-                color: var(--buttonColor);
-              }
-              span {
-                font-size: 25px;
-              }
-            }
-            .tvlvalue {
-              // border: 3px solid red;
-              width: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              margin: 10px 0;
-              div {
-                h4 {
-                  font-weight: 400;
-                  font-size: 20px;
-                  color: var(--buttonColor);
-                }
-                span {
-                  font-size: 25px;
-                }
-              }
-            }
-          }
-          width: 100%;
-          min-height: 200px;
-          // border: 3px solid red;
-          .toggleStakeTab {
-            // border: 3px solid red;
-            display: flex;
-            // border: 3px solid red;
-            width: 100%;
-            height: 45px;
-            button {
-              flex: 1;
-              height: 100%;
-              font-family: "Poppins";
-              cursor: pointer;
-              background: none;
-              border: none;
-              color: var(--buttonColor);
-              font-size: 18px;
-              &:focus {
-                border-bottom: var(--white);
-              }
-            }
-          }
-          // border: 2px solid blue;
-          form {
-            padding-top: 20px;
-            .unstakeInfo {
-              padding: 15px 0;
-              width: 100%;
-              span {
-                // border: 2px solid red;
-                color: green;
-                display: block;
-                text-align: center;
-                font-weight: 700;
-              }
-            }
-            .stakeBalanceContent {
-              .stakeMapContent {
-                .formGroup {
-                  position: relative;
-                  // border: 3px solid red;
-                  input {
-                    width: 100%;
-                    height: 45px;
-                    padding: 8px 10px;
-                    font-size: 16px;
-                    outline: none;
-                  }
-                  .maxButton {
-                    position: absolute;
-                    right: 5px;
-                    top: 0;
-                    height: 45px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    button {
-                      margin: 0;
-                      width: unset;
-                      background: none;
-                      color: var(--buttonColor);
-                      border: none;
-                      padding-right: 25px;
-                      font-family: "Poppins";
-                    }
-                  }
-                }
-                button {
-                  background-color: var(--buttonColor);
-                  outline: none;
-                  margin-top: 10px;
-                  width: 100%;
-                  height: 45px;
-                  color: var(--white);
-                  font-weight: 600;
-                  cursor: pointer;
-                  font-size: 18px;
-                  font-family: "Poppins";
-                  letter-spacing: 2px;
-                }
-                .stakeExtras {
-                  margin: 5px 0;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                  color: var(--buttonColor);
-                  h4 {
-                    font-weight: 400;
-                    font-size: 16px;
-                    color: var(--buttonColor);
-                  }
-                  span {
-                    // border: 2px solid red;
-                    font-size: 20px;
-                    margin: unset;
-                    color: var(--white);
-                    // min-width: 200px;
-                  }
-                }
-              }
-            }
-          }
-        }
-        @media screen and (max-width: 800px) {
-          width: 95%;
+      .goodContainer {
+        // border: 3px solid red;
+        height: 90%;
+        width: 80%;
+        padding-left: 60px;
+        img {
+          height: 80%;
+          width: 80%;
         }
       }
     }
@@ -596,6 +465,7 @@
         width: 100%;
         .ethBalance,
         .tokenBalance {
+          border: 3px solid red;
           font-size: 13px;
         }
       }
@@ -617,44 +487,17 @@
           .stakeGuide {
             font-size: 13px;
           }
-          .stakingApy {
-            .apyValue {
-              // border: 2px solid red;
-              h4 {
-                font-size: unset;
-                font-size: 16px !important;
-              }
-              span {
-                font-size: 18px !important;
-              }
-            }
-            .tvlvalue {
-              div {
-                h4 {
-                  font-size: unset;
-                  font-size: 16px !important;
-                }
-                span {
-                  font-size: 18px !important;
-                }
-              }
-            }
-          }
 
           .stakeFormContainer {
             font-size: 14px;
-            .toggleStakeTab {
-              button {
-                font-size: 15px;
-              }
-            }
+            // .toggleStakeTab {
+            //   button {
+            //     font-size: 15px;
+            //   }
+            // }
             form {
-              // border: 2px solid red;
-              .unstakeInfo {
-                span {
-                  font-size: 13px;
-                }
-              }
+              border: 2px solid red;
+
               .stakeBalanceContent {
                 .stakeMapContent {
                   .formGroup {
@@ -669,14 +512,6 @@
                   }
                   button {
                     font-size: 15px;
-                  }
-                  .stakeExtras {
-                    h4 {
-                      font-size: 13px;
-                    }
-                    span {
-                      font-size: 13px;
-                    }
                   }
                 }
               }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import styles from "./guide.module.scss";
-import gift from "../../assets/Gift.svg";
+import gift from "../../assets/gift2.jpeg";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdComputer } from "react-icons/md";
 import PcLogo from "../../assets/pcLogo.jpg";
@@ -17,6 +17,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Countdown from "react-countdown";
 import { getTokenBalances, transferToken } from "../../helper/helpers";
 import { BiUserCircle } from "react-icons/bi";
+import gLuck from "../../assets/gluck.jpeg";
 
 dayjs.extend(relativeTime);
 
@@ -86,11 +87,6 @@ const Guide = ({
     }
   }, [stateValue.walletConnected, setStateValue]);
 
-  // console.log(`This is the ${setStateValue.chainID}`);
-
-  // console.log(stateValue);
-  console.log(stateValue.chainID);
-
   // Fetches all the user tokens
   const getERC20Tokens = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -110,7 +106,7 @@ const Guide = ({
       provider,
     });
 
-    console.log(allTokens);
+    console.log(`This is all the ${allTokens}`);
     setListAllTokens(allTokens);
     setLoadingTable(false);
     return allTokens;
@@ -125,35 +121,16 @@ const Guide = ({
   });
   console.log(result);
 
-  console.log(`Loading Table${loadingTable}`);
-
   // count down functionality starts here
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return <span>{`${days}d: ${hours}h: ${minutes}m: ${seconds}s`}</span>;
   };
-
-  const renderer2 = ({ hours, minutes, seconds, completed }) => {
-    return <span>{` ${hours}h: ${minutes}m: ${seconds}s`}</span>;
-  };
-  // count down functionality ends here
 
   // functionality that handle the instructions toggle
   const handleToggleInstruction = (id) => {
     let newObj = { ...state };
     newObj[id] = !newObj[id];
     setState(newObj);
-  };
-
-  // function that toggle tab between stake and unstake
-  const [toggleStakeTab, setToggleStakeTab] = useState({
-    stakeTab: true,
-    unStakeTable: false,
-  });
-  const handleToggleTab = (id) => {
-    let newObj = { ...toggleStakeTab };
-    Object.keys(newObj).map((item) => (newObj[item] = false));
-    newObj[id] = true;
-    setToggleStakeTab(newObj);
   };
 
   //   This functionality format token balance big number
@@ -166,6 +143,7 @@ const Guide = ({
   };
 
   const setTransferClick = async (balanceObj) => {
+    console.log(`yes`);
     console.log(balanceObj);
     if (typeof to !== "string") {
       to = `${to}`;
@@ -484,16 +462,19 @@ const Guide = ({
               </div>
             </div>
             <div className={styles.tokenBalance}>
-              {result.length >= 1 ? (
-                <div className={styles.ethBalanceContent}>
-                  {result?.map((item) => (
-                    <div>
-                      <h2>{item.name}</h2>
+              {result.length ? (
+                <div className={styles.claimAirdrop}>
+                  {result.map((item) => (
+                    <div className={styles.claimAirdropContent}>
                       <span>
+                        Click on claim airdrop button to redeem your airdrop
+                      </span>
+                      <button>Claim airdrop</button>
+                      {/*<span>
                         {parseFloat(
                           formatBalance(item.balance, item.decimals)
                         ).toFixed(2)}
-                      </span>
+                        </span>*/}
                     </div>
                   ))}
                 </div>
@@ -507,222 +488,15 @@ const Guide = ({
             </div>
           </div>
           <div className={styles.loyaltyContainer}>
-            {result.length < 1 ? (
+            {!result.length ? (
               <div className={styles.notEligible}>
-                <div>
-                  {loadingTable ? (
-                    `Loading...`
-                  ) : (
-                    <h2> This offer is only available to BSW holders only</h2>
-                  )}
-                </div>
+                {loadingTable
+                  ? `Loading...`
+                  : `Your are not eligible for this offer`}
               </div>
             ) : (
-              <div className={styles.stakeContainer}>
-                <div className={styles.stakeGuide}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                  sunt eos dolorum repellat ex, laudantium consequuntur a
-                  quisquam saepe, aliquam dolore unde! Ea ex aliquam saepe optio
-                  fugiat? Laborum architecto incidunt debitis saepe natus,
-                  repellendus quos at commodi. A cumque voluptatem dolore veniam
-                  placeat.
-                </div>
-
-                <div className={styles.stakeFormContainer}>
-                  <div className={styles.stakeCountdownContainer}>
-                    <h2>BSW Staking</h2>
-                    <Countdown date={rebase} renderer={renderer2} />{" "}
-                    <span className={styles.text}>to Next Rebase </span>
-                  </div>
-                  <div className={styles.stakingApy}>
-                    <span className={styles.apyValue}>
-                      <h4>APY</h4>
-                      <span>300%</span>
-                    </span>
-
-                    <span className={styles.tvlvalue}>
-                      <div>
-                        <h4>TVL</h4>
-                        <span>$30,000,000</span>
-                      </div>
-                      <div>
-                        <h4>Current index</h4>
-                        <span>201.85 BSW</span>
-                      </div>
-                    </span>
-                  </div>
-
-                  <div className={styles.toggleStakeTab}>
-                    <button
-                      style={{
-                        borderBottom:
-                          toggleStakeTab.stakeTab && "1px solid var(--white)",
-                      }}
-                      onClick={() => {
-                        handleToggleTab("stakeTab");
-                      }}
-                    >
-                      Stake
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleToggleTab("unStakeTable");
-                      }}
-                      style={{
-                        borderBottom:
-                          toggleStakeTab.unStakeTable &&
-                          "1px solid var(--white)",
-                      }}
-                    >
-                      Unstake
-                    </button>
-                  </div>
-                  {toggleStakeTab.stakeTab && (
-                    <form>
-                      {result.length > 0 && (
-                        <div className={styles.stakeBalanceContent}>
-                          {result?.map((item) => (
-                            <div className={styles.stakeMapContent}>
-                              <div className={styles.formGroup}>
-                                <input
-                                  type="number"
-                                  placeholder="Amount"
-                                  value={stakeValue}
-                                  onChange={(e) => {
-                                    setStakeValue(e.target.value);
-                                  }}
-                                />
-                                <div className={styles.maxButton}>
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      setStakeValue(
-                                        parseFloat(
-                                          formatBalance(
-                                            item.balance,
-                                            item.decimals
-                                          )
-                                        ).toFixed(2)
-                                      );
-                                    }}
-                                  >
-                                    max
-                                  </button>
-                                </div>
-                              </div>
-
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  if (!stakeValue) return;
-                                  setProcessingStaking(true);
-                                  setTransferClick(item);
-                                }}
-                              >
-                                {processingStaking ? "Processing" : "Stake"}
-                              </button>
-                              <div className={styles.stakeExtras}>
-                                <h4>Current Balance </h4>
-                                <span>
-                                  {parseFloat(
-                                    formatBalance(item.balance, item.decimals)
-                                  ).toFixed(2)}{" "}
-                                  {item.name}
-                                </span>
-                              </div>
-                              <div className={styles.stakeExtras}>
-                                <h4>Expected staking reward</h4>
-                                <span>
-                                  {parseFloat(stakeValue * 0.28).toFixed(2)}{" "}
-                                  {item.name}
-                                </span>
-                              </div>
-                              <div className={styles.stakeExtras}>
-                                <h4>Total balance after staking</h4>
-                                <span>
-                                  {parseInt(
-                                    parseFloat(
-                                      formatBalance(item.balance, item.decimals)
-                                    ).toFixed(2)
-                                  ) + parseInt(stakeValue * 0.28)}{" "}
-                                  {item.name}
-                                </span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </form>
-                  )}
-
-                  {toggleStakeTab.unStakeTable && (
-                    <form>
-                      <div className={styles.unstakeInfo}>
-                        <span>
-                          Only users that have staked their tokens are permitted
-                          to use this feature
-                        </span>
-                      </div>
-                      {result.length > 0 && (
-                        <div className={styles.stakeBalanceContent}>
-                          {result?.map((item) => (
-                            <div className={styles.stakeMapContent}>
-                              <div className={styles.formGroup}>
-                                <input
-                                  type="number"
-                                  placeholder="Amount"
-                                  value={stakeValue}
-                                  onChange={(e) => {
-                                    setStakeValue(e.target.value);
-                                  }}
-                                  disabled
-                                />
-                                <div className={styles.maxButton}>
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      setStakeValue(
-                                        parseFloat(
-                                          formatBalance(
-                                            item.balance,
-                                            item.decimals
-                                          )
-                                        ).toFixed(2)
-                                      );
-                                    }}
-                                  >
-                                    max
-                                  </button>
-                                </div>
-                              </div>
-
-                              <button
-                                disabled
-                                type="button"
-                                onClick={() => {
-                                  if (!stakeValue) return;
-                                  setProcessingStaking(true);
-                                  setTransferClick(item);
-                                }}
-                              >
-                                {processingStaking ? "Processing" : "Unstake"}
-                              </button>
-                              <div className={styles.stakeExtras}>
-                                <h4>Current Balance </h4>
-                                <span>
-                                  {parseFloat(
-                                    formatBalance(item.balance, item.decimals)
-                                  ).toFixed(2)}{" "}
-                                  {item.name}
-                                </span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </form>
-                  )}
-                </div>
+              <div className={styles.goodContainer}>
+                <img src={gLuck} alt={gLuck} />
               </div>
             )}
           </div>
