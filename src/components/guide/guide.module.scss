@@ -489,48 +489,13 @@
       .loyaltyContainer {
         min-height: 100px;
         // border: 2px solid blue;
-        width: 100%;
+        width: 90%;
         margin: 20px 0;
         .notEligible {
           height: 500px;
           div {
             h2 {
               font-size: 13px;
-            }
-          }
-        }
-        .stakeContainer {
-          .stakeGuide {
-            font-size: 13px;
-          }
-
-          .stakeFormContainer {
-            font-size: 14px;
-            // .toggleStakeTab {
-            //   button {
-            //     font-size: 15px;
-            //   }
-            // }
-            form {
-              // border: 2px solid red;
-
-              .stakeBalanceContent {
-                .stakeMapContent {
-                  .formGroup {
-                    input {
-                      height: 40px;
-                    }
-                    .maxButton {
-                      button {
-                        font-size: 15px;
-                      }
-                    }
-                  }
-                  button {
-                    font-size: 15px;
-                  }
-                }
-              }
             }
           }
         }
