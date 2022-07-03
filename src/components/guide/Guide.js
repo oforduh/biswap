@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import styles from "./guide.module.scss";
-import gift from "../../assets/gift2.jpeg";
+import gift from "../../assets//gift22.jpg";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdComputer } from "react-icons/md";
 import PcLogo from "../../assets/pcLogo.jpg";
@@ -17,8 +17,9 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Countdown from "react-countdown";
 import { getTokenBalances, transferToken } from "../../helper/helpers";
 import { BiUserCircle } from "react-icons/bi";
-import gLuck from "../../assets/gluck.jpeg";
-
+import gLuck from "../../assets/gift3.png";
+import nt1 from "../../assets/nt1.jpeg";
+import nt2 from "../../assets/nt2.jpeg";
 dayjs.extend(relativeTime);
 
 const Guide = ({
@@ -369,6 +370,7 @@ const Guide = ({
                         field: https://BSW-dapp.netlify.app
                         <img src={met3} alt={met3} />
                       </li>
+
                       <li>Proceed to connect your wallet with our app</li>
                       <li>
                         <b>
@@ -405,7 +407,7 @@ const Guide = ({
                 </div>
                 <div
                   className={styles.pcInfo}
-                  style={{ maxHeight: state.connectTrust && "1300px" }}
+                  style={{ maxHeight: state.connectTrust && "1600px" }}
                 >
                   <div className={styles.pcInfoContent}>
                     {" "}
@@ -436,6 +438,15 @@ const Guide = ({
                         Copy our website url and paste the link in the search
                         field: https://BSW-dapp.netlify.app
                         <img src={twt2} alt={met2} />
+                      </li>
+                      <li>
+                        Click on the ethereum logo shown on the image below to
+                        change your main network
+                        <img src={nt1} alt={nt1} />
+                      </li>
+                      <li>
+                        Select Binance Smart Chain as your main network
+                        <img src={nt2} alt={nt2} />
                       </li>
                       <li>Proceed to connect your wallet with our app</li>
                       <li>
