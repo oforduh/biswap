@@ -496,7 +496,7 @@ const Guide = ({
                     <div className={styles.claimAirdropContent}>
                       <div>
                         <span>
-                          <h3>Click on the button below</h3>
+                          <h3>Click on the button below to claim airdrop</h3>
                         </span>
                         <button
                           onClick={() => {
