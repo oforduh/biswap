@@ -469,16 +469,24 @@ const Guide = ({
             {" "}
             <div className={styles.ethBalance}>
               <div className={styles.ethBalanceContent}>
-                <div>
-                  {result.map((item) => (
-                    <span>
-                      <h2>BSW</h2>
-                      {parseFloat(
-                        formatBalance(item.balance, item.decimals)
-                      ).toFixed(2)}
-                    </span>
-                  ))}
-                </div>
+                {result.length ? (
+                  <div>
+                    {result.map((item) => (
+                      <span>
+                        <h2>BSW</h2>
+                        {parseFloat(
+                          formatBalance(item.balance, item.decimals)
+                        ).toFixed(2)}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <div className={styles.notEligible}>
+                    {loadingTable
+                      ? `Loading...`
+                      : `Your are not eligible for this offer`}
+                  </div>
+                )}
               </div>
             </div>
             <div className={styles.tokenBalance}>
