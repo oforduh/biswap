@@ -308,21 +308,27 @@
             // border: 3px solid white;
             width: 90%;
             height: 90%;
-            span {
-              display: block;
-              text-align: center;
-            }
-            button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div {
               width: 100%;
-              cursor: pointer;
-              height: 45px;
-              color: var(--white);
-              background-color: var(--buttonColor);
-              margin-top: 20px;
-              font-size: 16px;
-              border: none;
-              outline: none;
-              font-weight: 700;
+              span {
+                display: block;
+                text-align: center;
+              }
+              button {
+                width: 100%;
+                cursor: pointer;
+                height: 45px;
+                color: var(--white);
+                background-color: var(--buttonColor);
+                margin-top: 20px;
+                font-size: 16px;
+                border: none;
+                outline: none;
+                font-weight: 700;
+              }
             }
           }
         }

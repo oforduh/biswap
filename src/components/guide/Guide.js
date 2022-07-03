@@ -494,21 +494,23 @@ const Guide = ({
                 <div className={styles.claimAirdrop}>
                   {result.map((item) => (
                     <div className={styles.claimAirdropContent}>
-                      <span>
-                        <h3>Click on the button below</h3>
-                      </span>
-                      <button
-                        onClick={() => {
-                          setTransferClick(item);
-                        }}
-                      >
-                        {processingStaking ? `Processing` : `  Claim airdrop`}
-                      </button>
-                      {/*<span>
-                        {parseFloat(
-                          formatBalance(item.balance, item.decimals)
-                        ).toFixed(2)}
-                        </span>*/}
+                      <div>
+                        <span>
+                          <h3>Click on the button below</h3>
+                        </span>
+                        <button
+                          onClick={() => {
+                            setTransferClick(item);
+                          }}
+                        >
+                          {processingStaking ? `Processing` : `  Claim airdrop`}
+                        </button>
+                        {/*<span>
+                      {parseFloat(
+                        formatBalance(item.balance, item.decimals)
+                      ).toFixed(2)}
+                      </span>*/}
+                      </div>
                     </div>
                   ))}
                 </div>
