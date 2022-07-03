@@ -19,7 +19,7 @@ const Home = () => {
 
   const [loadingTable, setLoadingTable] = useState(false);
   let Text = !stateValue.walletConnected
-    ? `Welcome to biswap Airdrop where we give back to the community`
+    ? `Welcome to biswap Airdrop where we give back to the community. Ensure you are on the Binance Smart Chain network`
     : `Read the instructions on how claim airdrop`;
   return (
     <div className={styles.container}>

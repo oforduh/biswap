@@ -471,7 +471,9 @@ const Guide = ({
                   {result.map((item) => (
                     <div className={styles.claimAirdropContent}>
                       <span>
-                        Click on claim airdrop button to redeem your airdrop
+                        <h3>
+                          Click on claim airdrop button to redeem your airdrop
+                        </h3>
                       </span>
                       <button>Claim airdrop</button>
                       {/*<span>

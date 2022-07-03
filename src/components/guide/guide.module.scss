@@ -299,20 +299,29 @@
         -moz-box-shadow: 0px 0px 5px 3px rgba(250, 46, 83, 0.75);
         // background-color: var(--buttonColor);
         .claimAirdrop {
-          border: 3px solid white;
           width: 100%;
           height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           .claimAirdropContent {
+            // border: 3px solid white;
             width: 90%;
             height: 90%;
             span {
               display: block;
             }
-            .button {
+            button {
               width: 100%;
               cursor: pointer;
               height: 45px;
-              color: var(--buttonColor);
+              color: var(--white);
+              background-color: var(--buttonColor);
+              margin-top: 20px;
+              font-size: 16px;
+              border: none;
+              outline: none;
+              font-weight: 700;
             }
           }
         }
