@@ -470,8 +470,14 @@ const Guide = ({
             <div className={styles.ethBalance}>
               <div className={styles.ethBalanceContent}>
                 <div>
-                  <h2>{stateValue.chainID === 1 ? "ETH" : "BSC"} BALANCE</h2>
-                  <span>{stateValue.accountBalance}</span>
+                  {result.map((item) => (
+                    <span>
+                      <h2>BSW</h2>
+                      {parseFloat(
+                        formatBalance(item.balance, item.decimals)
+                      ).toFixed(2)}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
