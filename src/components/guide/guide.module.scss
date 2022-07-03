@@ -41,7 +41,7 @@
 
       // progress bar starts here
       .meter {
-        border: 2px solid red;
+        // border: 2px solid red;
         box-sizing: content-box;
         height: 20px; /* Can be anything */
         position: relative;
@@ -97,7 +97,7 @@
       }
       .red {
         span {
-          background-image: linear-gradient(#f0a3a3, #f42323);
+          // background-image: linear-gradient(#f0a3a3, #f42323);
         }
       }
       // progress bar ends here
@@ -506,7 +506,7 @@
             //   }
             // }
             form {
-              border: 2px solid red;
+              // border: 2px solid red;
 
               .stakeBalanceContent {
                 .stakeMapContent {
