@@ -38,7 +38,6 @@ export const connectWallet = async ({
         account.length - 5,
         account.length
       )}`;
-      console.log(account);
       // save data to local storage
       sessionStorage.setItem("account", account);
       sessionStorage.setItem("balance", balance);

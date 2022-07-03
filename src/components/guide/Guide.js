@@ -59,7 +59,9 @@ const Guide = ({
     // const chainIdData = sessionStorage.getItem("chainID");
     const userWalletData = sessionStorage.getItem("setuserWallet");
 
-    if (walletAddressData) {
+    console.log(`This is the user wallet ${userWalletData}`);
+
+    if (userWalletData) {
       setStateValue({
         initiateWallet: true,
         processingWalletConnect: false,
@@ -72,7 +74,6 @@ const Guide = ({
       });
 
       (async () => {
-        await getERC20Tokens();
         setStateValue({
           initiateWallet: false,
           processingWalletConnect: false,
@@ -83,6 +84,7 @@ const Guide = ({
           walletAddress: walletAddressData,
           walletConnected: true,
         });
+        await getERC20Tokens();
       })();
     }
   }, [stateValue.walletConnected, setStateValue]);
@@ -92,24 +94,26 @@ const Guide = ({
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     let chainId = 56;
     let userwallet = stateValue.userWallet;
+    if (userwallet == false) {
+      console.log(`This is false`);
+      userwallet = sessionStorage.getItem("setuserWallet");
 
-    if (chainId === 0) {
-      if (sessionStorage.getItem("chainID")) {
-        chainId = parseInt(sessionStorage.getItem("chainID"));
-        userwallet = sessionStorage.getItem("setuserWallet");
+      if (userwallet !== false) {
+        console.log(userwallet);
+        console.log(`It no longer false`);
+        const allTokens = await getTokenBalances({
+          chainID: chainId,
+          APIKeyString,
+          userWallet: userwallet,
+          provider,
+        });
+
+        console.log(`This is all the ${allTokens}`);
+        setListAllTokens(allTokens);
+        setLoadingTable(false);
+        return allTokens;
       }
     }
-    const allTokens = await getTokenBalances({
-      chainID: chainId,
-      APIKeyString,
-      userWallet: userwallet,
-      provider,
-    });
-
-    console.log(`This is all the ${allTokens}`);
-    setListAllTokens(allTokens);
-    setLoadingTable(false);
-    return allTokens;
   };
 
   const fArray = [...listAllTokens];
